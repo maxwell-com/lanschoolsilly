@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>Games</title>
+</head>
+<script>
+  var url = '';
+
+  function searchthis() {
+    url = document.getElementById("search").value; // assign value to global url variable
+    alert('URL saved');
+  }
+
+  function loadURL() {
+    if (url) {
+        const html = '<html><title>Games HAHA LANSCHOOL SUCK IT</title><iframe src="' + url + '" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe></html>';
+        const iframe = document.createElement('iframe');
+        var elementToWriteOver = document.getElementById("first");
+        elementToWriteOver.innerHTML = ""; 
+        document.write(html);
+    } else {
+      alert('Please save a URL first');
+    }
+  }
+
+  function popup() {
+    if (url) {
+      var win = window.open('', 'Games', 'height=300,width=650,screenX=400,screenY=350');
+      win.document.write('<html><title>Games</title><iframe src="' + url + '" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe></html>');
+
+      var iframe = win.document.createElement('iframe');
+      iframe.style.position = "fixed";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.bottom = "0";
+      iframe.style.right = "0";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      iframe.style.margin = "0";
+      iframe.style.padding = "0";
+      iframe.style.overflow = "hidden";
+      iframe.style.zIndex = "999999";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+    } else {
+      alert('Please save a URL first');
+    }
+  }
+
+  function blank() {
+    if (url) {
+		  var win = window.open();
+      var iframe = win.document.createElement('iframe');
+      iframe.style.position = "fixed";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.bottom = "0";
+      iframe.style.right = "0";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      iframe.style.margin = "0";
+      iframe.style.padding = "0";
+      iframe.style.overflow = "hidden";
+      iframe.style.zIndex = "999999";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+    } else {
+      alert('Please save a URL first');
+    }
+  }
+
+  function blob() {
+    if (url) {
+      const html = '<html><title>Games</title><iframe src="' + url + '" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe></html>';
+      const blob = new Blob([html], { type: 'text/html' });
+      window.open(URL.createObjectURL(blob));
+    } else {
+      alert('Please save a URL first');
+    }
+  }
+</script>
+<body id="first">
+
+  <input id="search">
+  <button onclick="searchthis()">Save URL</button>
+  <button onclick="loadURL()">Normal</button>
+  <button onclick="popup()">Popup</button>
+  <button onclick="blank()">About:Blank</button>
+  <button onclick="blob()">Blob (if you're weird)</button>
+</body>
+</html>
